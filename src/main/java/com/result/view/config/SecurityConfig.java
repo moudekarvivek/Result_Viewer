@@ -21,6 +21,7 @@ public class SecurityConfig {
 //            httpRequest.anyRequest().permitAll();
 //        });
 
+//        http.csrf(e -> e.disable());
         http.authorizeHttpRequests(httpRequests ->
                         httpRequests.requestMatchers("/admin/add-result").authenticated()
                                 .requestMatchers("/admin/add-result-action").
@@ -29,7 +30,7 @@ public class SecurityConfig {
                 .formLogin(formLogin ->
                         formLogin.loginPage("/user-login")
                                 .loginProcessingUrl("/do-login")
-                                .successForwardUrl("/admin/add-result")
+                                .successForwardUrl("/admin/result-page")
                                 .failureForwardUrl("/user-login")
                                 .permitAll()
 
